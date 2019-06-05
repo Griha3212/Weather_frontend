@@ -4,7 +4,7 @@ class Main extends React.Component {
 
     render() {
 
-        return <div>This is main page</div>;
+        return <div><h1>Все действия доступны только после авторизации</h1></div>;
 
     }
 

@@ -45,7 +45,7 @@ class Register extends React.Component {
         try{
             axios.post('http://localhost:3000/api/register',
             formValues
-        ) .then(function(response){
+        ).then(function(response){
             console.log(response);
             //Perform action based on response
           })

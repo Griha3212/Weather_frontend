@@ -3,7 +3,7 @@ import { BrowserRouter, Route} from 'react-router-dom';
 import Register from './Register';
 import Login from './Login';
 import Main from './Main';
-
+import Header from './Header';
 
 
 
@@ -13,6 +13,7 @@ const App = () => {
 
             <BrowserRouter>
                 <div>
+                <Header />
                     <Route path='/' exact component={Main} />
                     <Route path='/register' exact component={Register} />
                     <Route path='/login' exact component={Login} />
