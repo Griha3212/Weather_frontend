@@ -1,4 +1,4 @@
-import {SIGN_IN, SIGN_OUT} from './types';
+import { SIGN_IN, SIGN_OUT, BUTTON_ON } from './types';
 
 
 export const signIn = (user) => {
@@ -21,3 +21,15 @@ export const signOut = () => {
     };
 
 };
+
+
+export const buttonON = () => {
+
+    return {
+
+        type: 'BUTTON_ON'
+
+    };
+
+}
+

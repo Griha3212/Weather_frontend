@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import axios from 'axios';
 import Auth from './Auth';
+// import SimpleButton from './SimpleButton';
 
 class Login extends React.Component {
 
@@ -53,14 +54,7 @@ class Login extends React.Component {
             ).then(function (response) {
                 console.log("Это ответ", response);
 
-                if (response.data === "login successful") {
-
-                    console.log("Всё отлично");
-
-
-                }
-
-                //Perform action based on response
+                
             })
         }
 
@@ -76,13 +70,13 @@ class Login extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
+            <form className="ui form error">
                 {/* <Field name="username" component={this.renderInput} label="Enter Username" /> */}
                 <Field name="email" component={this.renderInput} label="Enter e-mail" />
                 <Field name="password" component={this.renderInput} label="Enter Password" />
-                <button className="ui button primary">Submit</button>
-                
-                {/* <Auth /> */}
+                {/* <button onClick={this.props.handleSubmit(this.onSubmit)} className="ui button primary">Submit</button> */}
+                {/* <SimpleButton onClick={this.props.handleSubmit(this.onSubmit)}/> */}
+                {/* <Auth onClick={this.props.handleSubmit(this.onSubmit)} /> */}
             </form>
         );
     }

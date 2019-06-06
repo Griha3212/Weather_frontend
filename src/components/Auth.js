@@ -10,9 +10,10 @@ class Auth extends React.Component {
         // this.auth.isSignedIn.listen(this.onAuthChange);
     //  this.auth.isSignedIn == null;
     //   this.props.isSignedIn = null;
-    
-    this.onAuthChange(this.auth.isSignedIn.post());
-    this.auth.isSignedIn.listen(this.onAuthChange);
+    this.auth = true;
+    // this.auth.isSignedIn = true;
+    // this.onAuthChange(this.auth.isSignedIn.post());
+    // this.auth.isSignedIn.listen(this.onAuthChange);
 
     }
 
