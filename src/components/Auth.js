@@ -7,8 +7,12 @@ class Auth extends React.Component {
 
     componentDidMount() {
 
-        this.isSignedIn = null;
-
+        // this.auth.isSignedIn.listen(this.onAuthChange);
+    //  this.auth.isSignedIn == null;
+    //   this.props.isSignedIn = null;
+    
+    this.onAuthChange(this.auth.isSignedIn.post());
+    this.auth.isSignedIn.listen(this.onAuthChange);
 
     }
 
@@ -51,13 +55,13 @@ class Auth extends React.Component {
 
     onSignIn = () => {
 
-        signIn();
+        this.auth.signIn();
 
     };
 
     onSignOut = () => {
 
-        signOut();
+        this.auth.signOut();
 
     };
 
@@ -72,7 +76,7 @@ class Auth extends React.Component {
         } else if (this.props.isSignedIn) {
 
             return (
-                <button onClick={this.onSignOut} className="ui red google button">
+                <button onClick={this.onSignOut} className="ui red button">
                     <i className="google icon" />
                     Sign Out
                 </button>
@@ -101,7 +105,7 @@ class Auth extends React.Component {
 
     render() {
 
-        return <div>{this.renderAuthButton()}</div>;
+        return <div>{this.auth.renderAuthButton()}</div>;
 
     }
 
@@ -109,7 +113,7 @@ class Auth extends React.Component {
 }
 
 const mapToStateProps = (state) => {
-    return { isSignedIn: state.isSignedIn };
+    return { isSignedIn: state.auth.isSignedIn };
 
 
 };

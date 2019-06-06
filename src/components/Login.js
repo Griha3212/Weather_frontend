@@ -80,8 +80,9 @@ class Login extends React.Component {
                 {/* <Field name="username" component={this.renderInput} label="Enter Username" /> */}
                 <Field name="email" component={this.renderInput} label="Enter e-mail" />
                 <Field name="password" component={this.renderInput} label="Enter Password" />
-                <Auth/>
-              
+                <button className="ui button primary">Submit</button>
+                
+                {/* <Auth /> */}
             </form>
         );
     }
