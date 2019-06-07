@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-
 // import axios from 'axios';
 
-class RegisterForm extends React.PureComponent {
+class RegisterForm extends React.Component {
+
     renderError({ error, touched }) {
         if (touched && error) {
             return (
@@ -19,8 +19,7 @@ class RegisterForm extends React.PureComponent {
 
 
     renderInput = ({ input, label, meta }) => {
-        // eslint-disable-next-line no-console
-        console.log(meta);
+        // console.log(meta);
         return (
             <div className="field">
                 <label>{label}</label>
@@ -30,22 +29,22 @@ class RegisterForm extends React.PureComponent {
         );
     }
 
-    // Отправка при успешном заполнении формы и клике по кнопке
+    // Отправка при успешном заполнении формы
     onSubmit = async (formValues) => {
         const { onFormSubmited } = this.props;
+        console.log('this.props', this.props)
         onFormSubmited(formValues);
     }
 
     render() {
         const { isRegistrationLoading } = this.props;
-
         return (
           <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
               <Field name="username" component={this.renderInput} label="Enter Username" />
               <Field name="email" component={this.renderInput} label="Enter e-mail" />
               <Field name="password" component={this.renderInput} label="Enter Password" />
               <button disabled={isRegistrationLoading} className="ui button primary">Submit</button>
-          </form>
+            </form>
         );
     }
 }

@@ -4,27 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 
 // import axios from 'axios';
 
-class RegisterForm extends React.PureComponent {
-
-
-    renderInput = ({ input, label, meta }) => {
-        // eslint-disable-next-line no-console
-        console.log(meta);
-        return (
-            <div className="field">
-                <label>{label}</label>
-                <input {...input} autoComplete="off" />
-                {this.renderError(meta)}
-            </div>
-        );
-    }
-
-    // Отправка при успешном заполнении формы и клике по кнопке
-    onSubmit = async (formValues) => {
-        const { onFormSubmited } = this.props;
-        onFormSubmited(formValues);
-    }
-
+class LoginForm extends React.PureComponent {
     renderError({ error, touched }) {
         if (touched && error) {
             return (
@@ -37,15 +17,37 @@ class RegisterForm extends React.PureComponent {
         }
     }
 
+
+    renderInput = ({ input, label, meta }) => {
+        // eslint-disable-next-line no-console
+        // console.log(meta);
+        return (
+            <div className="field">
+                <label>{label}</label>
+                <input {...input} autoComplete="off" />
+                {this.renderError(meta)}
+            </div>
+        );
+    }
+
+    // Отправка при успешном заполнении формы и клике по кнопке
+    onSubmit = async (formValues) => {
+        console.log('onSubmit', formValues);
+        console.log('this.props', this.props)
+        const { onFormSubmited } = this.props;
+        onFormSubmited(formValues);
+    }
+
     render() {
-        const { isRegistrationLoading } = this.props;
+
+        console.log('this.props', this.props)
+        // const { isLoginLoading } = this.props;
 
         return (
           <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
-              <Field name="username" component={this.renderInput} label="Enter Username" />
               <Field name="email" component={this.renderInput} label="Enter e-mail" />
               <Field name="password" component={this.renderInput} label="Enter Password" />
-              <button disabled={isRegistrationLoading} className="ui button primary">Submit</button>
+              <button className="ui button primary">Submit</button>
           </form>
         );
     }
@@ -55,9 +57,9 @@ class RegisterForm extends React.PureComponent {
 // /Проверка полей формы
 const validate = (formValues) => {
     const errors = {};
-    if (!formValues.username) {
-        errors.username = 'Enter the username pls';
-    }
+    // if (!formValues.username) {
+    //     errors.username = 'Enter the username pls';
+    // }
 
     if (!formValues.email) {
         errors.email = 'Enter the email pls';
@@ -72,8 +74,8 @@ const validate = (formValues) => {
 
 export default reduxForm(
     {
-        form: 'register',
+        form: 'login',
         validate,
     },
 
-)(RegisterForm);
+)(LoginForm);

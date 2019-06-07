@@ -31,6 +31,7 @@ const store = createStore(
 
 
 ReactDOM.render(
+    // eslint-disable-next-line react/jsx-filename-extension
     <Provider store={store}>
         <App />
     </Provider>,

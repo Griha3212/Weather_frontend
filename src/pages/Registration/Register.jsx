@@ -1,13 +1,11 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Redirect, Route, BrowserRouter as Router } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 import { register } from '../../actions/register.thunk';
 
 
 class Register extends React.PureComponent {
-   
     componentDidUpdate() {
         const { isRegistrationLoading, registerCompleted } = this.props;
         if (!isRegistrationLoading && registerCompleted) {
@@ -22,15 +20,15 @@ class Register extends React.PureComponent {
 
 
     formSubmited = (values) => {
-        console.log('values', values);
-        const { register } = this.props;
-        register(values);
+        console.log('register formSubmited', values);
+        this.props.register(values);
     }
 
     render() {
         const { isRegistrationLoading } = this.props;
         return (
-            <RegisterForm isRegistrationLoading={isRegistrationLoading}
+            <RegisterForm 
+                isRegistrationLoading={isRegistrationLoading}
                 onFormSubmited={this.formSubmited} />
         );
     }

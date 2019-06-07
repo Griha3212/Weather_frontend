@@ -1,34 +1,34 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import RegisterForm from './RegisterForm';
-import { register } from '../../actions/register.thunk';
+import LoginForm from './LoginForm';
+import { login } from '../../actions/login.thunk';
 
 
-class Register extends React.PureComponent {
+class Login extends React.PureComponent {
     componentDidUpdate() {
-        const { isRegistrationLoading, registerCompleted } = this.props;
-        if (!isRegistrationLoading && registerCompleted) {
+        const { isLoginLoading, loginCompleted } = this.props;
+        if (!isLoginLoading && loginCompleted) {
             // redirect to logi
-            console.log('Запускаю редирект');
+            console.log('Ничего не делаю');
             // <Route path="/api/login" exact component={Register} />;
             // // <Redirect to='/api/login' />;
-            const { history } = this.props;
-            history.push('login');
+            // const { history } = this.props;
+            // history.push('login');
         }
     }
 
 
     formSubmited = (values) => {
-        console.log('values', values);
-        const { register } = this.props;
-        register(values);
+        console.log('register formSubmited', values);
+        this.props.login(values);
     }
 
     render() {
-        const { isRegistrationLoading } = this.props;
+        const { isLoginLoading } = this.props;
         return (
-            <RegisterForm isRegistrationLoading={isRegistrationLoading}
+            <LoginForm 
+                isLoginLoading={isLoginLoading}
                 onFormSubmited={this.formSubmited} />
         );
     }
@@ -37,14 +37,14 @@ class Register extends React.PureComponent {
 
 const mapStateToProps = (state) => {
     return {
-        isRegistrationLoading: state.register.isRegistrationLoading,
-        registerCompleted: state.register.registerCompleted,
+        isLoginLoading: state.login.isLoginLoading,
+        loginCompleted: state.login.loginCompleted,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ register }, dispatch);
+    return bindActionCreators({ login }, dispatch);
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
