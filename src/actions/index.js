@@ -1,35 +1,18 @@
-import { SIGN_IN, SIGN_OUT, BUTTON_ON } from './types';
+import { SIGN_IN, SIGN_OUT } from './types';
 
 
-export const signIn = (user) => {
+export const signIn = user => ({
+    type: SIGN_IN,
+    payload: user,
+});
 
-    return {
-        type: SIGN_IN,
-        payload: user
-
-
-    };
-
-};
-
-export const signOut = () => {
-
-    return {
-        type: SIGN_OUT
+export const signOut = () => ({
+    type: SIGN_OUT,
+});
 
 
-    };
+export const buttonON = () => ({
 
-};
+    type: 'BUTTON_ON',
 
-
-export const buttonON = () => {
-
-    return {
-
-        type: 'BUTTON_ON'
-
-    };
-
-}
-
+});

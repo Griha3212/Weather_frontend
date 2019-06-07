@@ -1,0 +1,23 @@
+{
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    },
+    "rules": {
+        "indent": [0,4],
+        "linebreak-style": 0,
+        "react/prop-types": 0,
+        "react/jsx-indent": [0],
+        "jsx-quotes": [0]
+    }
+
+
+    
+}

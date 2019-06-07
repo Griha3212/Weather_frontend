@@ -9,3 +9,7 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 
 // export const SIGNED_IN = 'SIGNED_IN';
 // export const SIGNED_OUT = 'SIGNED_OUT';
+
+export const AUTH_REQUEST = 'AUTH_REQUEST';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAILURE = 'AUTH_FAILURE';
