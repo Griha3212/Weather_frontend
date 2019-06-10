@@ -8,9 +8,9 @@ class LoginForm extends React.PureComponent {
     renderError({ error, touched }) {
         if (touched && error) {
             return (
-              <div className="ui error message">
-                  <div className="header">
-                      {error}
+                <div className="ui error message">
+                    <div className="header">
+                        {error}
                     </div>
                 </div>
             );
@@ -32,23 +32,23 @@ class LoginForm extends React.PureComponent {
 
     // Отправка при успешном заполнении формы и клике по кнопке
     onSubmit = async (formValues) => {
-        console.log('onSubmit', formValues);
-        console.log('this.props', this.props)
+        // console.log('onSubmit', formValues);
+        // console.log('this.props', this.props);
         const { onFormSubmited } = this.props;
         onFormSubmited(formValues);
+        // const serialObj = JSON.stringify(formValues);
+        // localStorage.setItem('localStorageLogin', serialObj);
     }
 
     render() {
-
-        console.log('this.props', this.props)
+        // console.log('this.props', this.props);
         // const { isLoginLoading } = this.props;
-
         return (
-          <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
-              <Field name="email" component={this.renderInput} label="Enter e-mail" />
-              <Field name="password" component={this.renderInput} label="Enter Password" />
-              <button className="ui button primary">Submit</button>
-          </form>
+            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
+                <Field name="email" component={this.renderInput} label="Enter e-mail" />
+                <Field name="password" component={this.renderInput} label="Enter Password" />
+                <button className="ui button primary">Submit</button>
+            </form>
         );
     }
 }

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import * as actions from './login.actions';
-import instance from '../core/axios';
+import axiosInstance from '../core/axios';
 
 
 export const login = (data) => {
@@ -11,15 +11,16 @@ export const login = (data) => {
             dispatch(actions.loginRequest());
             // import axiosInstance from core/axios
             // const response = await axiosInstance.post('/api/login');
-            console.log('Данные перед отправкой', data);
-        const response = await instance.post('/api/login', data);
-        console.log('Я отправил данные');
-
+            // console.log('Данные перед отправкой', data);
+            const response = await axiosInstance.post('/api/login', data);
+            // console.log('Я отправил данные');
+            console.log(response);
+            // console.log('Я принял данные');
+            // eslint-disable-next-line no-undef
+            localStorage.setItem('token', JSON.stringify(response.data.token));
             dispatch(actions.loginSuccess(response.data));
         } catch (err) {
             dispatch(actions.loginFailure(err));
         }
     };
 };
-
-
