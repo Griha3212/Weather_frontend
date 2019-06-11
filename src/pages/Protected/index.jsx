@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, Router } from 'react-router';
-import Weather from '../../components/Weather';
+import Weather from '../Weather';
 import axiosInstance from '../../core/axios';
 
 class Protected extends React.Component {
@@ -10,15 +10,18 @@ class Protected extends React.Component {
 
     componentDidMount() {
         // checkLogin();
-        console.log('Проверка логина');
+        console.log('Проверка логина', this.props);
+        const { history } = this.props;
         axiosInstance.get('/api/checkLogin')
-            .then((result) => {
-                const { history } = this.props;
-                history.push('/weather');
+            .then(() => {
+                this.setState({
+                    isAuthenticated: true,
+                }, () => {
+                    history.push('/weather');
+                });
             })
             .catch((err) => {
-                const { history } = this.props;
-                history.push('login');
+                history.push('/login');
             });
         // async action checkToken
         // axiosInsatnce.get('/checkLogin')
@@ -41,13 +44,11 @@ class Protected extends React.Component {
 
 
         return (
-            <Router>
-                <Switch>
-                    <Route path='/weather' exact component={Weather} />
-                    <Route path='/history' exact component={History} />
-                    {/* <Route path='/profile' exact component={Profile} /> */}
-                </Switch>
-            </Router>
+            <Switch>
+                <Route path='/weather' exact component={Weather} />
+                {/* <Route path='/history' exact component={History} /> */}
+                {/* <Route path='/profile' exact component={Profile} /> */}
+            </Switch>
         );
     }
 }

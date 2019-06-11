@@ -13,7 +13,6 @@ export const register = (data) => {
             console.log('Данные перед отправкой', data);
         const response = await axiosInstance.post('/api/register', data);
         console.log('Я отправил данные');
-
             dispatch(actions.registerSuccess({}));
         } catch (err) {
             dispatch(actions.registerFailure({}));
