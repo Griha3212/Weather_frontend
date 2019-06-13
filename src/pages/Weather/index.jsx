@@ -1,8 +1,6 @@
 import React from 'react';
 import AutocompleteInput from '../../components/Autocompleteinput/AutocompleteInput';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { weatherData } from '../../actions/weatherdata.thunk';
+import WeatherTable from '../../components/WeatherTable/WeatherTable';
 
 
 class Weather extends React.PureComponent {
@@ -11,22 +9,11 @@ class Weather extends React.PureComponent {
             <>
 
                 <AutocompleteInput />
-                {this.props.weatherData}
+                <WeatherTable />
             </>
-        )
+        );
     }
 }
 
 
-const mapStateToProps = (state) => {
-    return {
-        isWeatherLoading: state.weather.isWeatherLoading,
-        weatherCompleted: state.weather.weatherCompleted,
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ weatherData }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Weather);
+export default Weather;

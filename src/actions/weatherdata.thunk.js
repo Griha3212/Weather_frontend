@@ -21,15 +21,14 @@ export const weatherData = (inputLat, inputLon) => {
                 },
             })
                 .then((response) => {
-                    // dataresponse = response;
+
+                    dispatch(actions.weatherDataSuccess({ response }));
                     console.log(response);
                 })
                 .catch((error) => {
                     // handle error
                     console.log(error);
                 });
-
-            dispatch(actions.weatherDataSuccess({}));
         } catch (err) {
             dispatch(actions.weatherDataFailure({ err }));
         }

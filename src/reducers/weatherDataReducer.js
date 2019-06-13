@@ -7,6 +7,7 @@ import {
 const INITIAL_STATE = {
     isWeatherLoading: false,
     weatherCompleted: false,
+    weatherData: null,
 };
 
 
@@ -24,6 +25,7 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 isWeatherLoading: false,
                 weatherCompleted: true,
+                weatherData: action.payload,
             };
         }
         case WEATHER_DATA_FAILURE: {

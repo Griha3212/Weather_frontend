@@ -1,4 +1,3 @@
-// import { SIGN_IN, SIGN_OUT } from '../actions/types';
 import {
     REGISTER_REQUEST,
     REGISTER_SUCCESS,
