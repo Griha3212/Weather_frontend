@@ -1,6 +1,10 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 import React from 'react';
-import { Switch, Route, Router } from 'react-router';
+import { Switch, Route } from 'react-router';
 import Weather from '../Weather';
+import History from '../History';
+
 import axiosInstance from '../../core/axios';
 
 class Protected extends React.Component {
@@ -17,24 +21,12 @@ class Protected extends React.Component {
                 this.setState({
                     isAuthenticated: true,
                 }, () => {
-                    history.push('/weather');
+                    // history.push('/weather');  //постоянный редирект, если залогинен
                 });
             })
             .catch((err) => {
                 history.push('/login');
             });
-        // async action checkToken
-        // axiosInsatnce.get('/checkLogin')
-        //.then(() => {
-        //     this.setState({
-        //         isAuthenticated: true
-        //     })
-        // if success  redirect to /weather
-        // })
-        // .catch(() => {
-
-        //     // if checkToken failure redirect to /login
-        // })
     }
 
 
@@ -46,7 +38,7 @@ class Protected extends React.Component {
         return (
             <Switch>
                 <Route path='/weather' exact component={Weather} />
-                {/* <Route path='/history' exact component={History} /> */}
+                <Route path='/history' exact component={History} />
                 {/* <Route path='/profile' exact component={Profile} /> */}
             </Switch>
         );

@@ -7,7 +7,7 @@ import {
 
 const INITIAL_STATE = {
     isLoginLoading: false,
-    LOGINCompleted: false,
+    loginCompleted: false,
 };
 
 
@@ -17,21 +17,21 @@ export default (state = INITIAL_STATE, action) => {
         return {
             ...state,
             isLoginLoading: true,
-            LOGINCompleted: false,
+            loginCompleted: false,
         };
     }
     case LOGIN_SUCCESS: {
         return {
             ...state,
             isLoginLoading: false,
-            LOGINCompleted: true,
+            loginCompleted: true,
         };
     }
     case LOGIN_FAILURE: {
         return {
             ...state,
             isLoginLoading: false,
-            LOGINCompleted: false,
+            loginCompleted: false,
         };
     }
 

@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prefer-stateless-function */
@@ -5,9 +6,7 @@ import React from 'react';
 import Autocomplete from 'react-google-autocomplete';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-// import axios from 'axios';
 import { weatherData } from '../../actions/weatherdata.thunk';
-// import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 
 class AutocompleteInput extends React.PureComponent {

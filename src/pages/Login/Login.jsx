@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import { login } from '../../actions/login.thunk';
+import Header from '../../components/Header/Header';
 
 
 class Login extends React.PureComponent {
@@ -13,8 +14,8 @@ class Login extends React.PureComponent {
             console.log('Ничего не делаю');
             // <Route path="/api/login" exact component={Register} />;
             // // <Redirect to='/api/login' />;
-            // const { history } = this.props;
-            // history.push('login');
+            const { history } = this.props;
+            history.push('/weather');
         }
     }
 
@@ -27,7 +28,7 @@ class Login extends React.PureComponent {
     render() {
         const { isLoginLoading } = this.props;
         return (
-            <LoginForm 
+            <LoginForm
                 isLoginLoading={isLoginLoading}
                 onFormSubmited={this.formSubmited} />
         );

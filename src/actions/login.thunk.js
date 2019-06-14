@@ -12,7 +12,7 @@ export const login = (data) => {
             // import axiosInstance from core/axios
             // const response = await axiosInstance.post('/api/login');
             // console.log('Данные перед отправкой', data);
-            const response = await axiosInstance.post('/api/login', data);
+            const response = await axiosInstance.post('/auth/login', data);
             // console.log('Я отправил данные');
             console.log(response);
             // console.log('Я принял данные');

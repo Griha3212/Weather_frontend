@@ -1,17 +1,11 @@
+/* eslint-disable no-console */
+/* eslint-disable arrow-body-style */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import Row from './Row';
 import { connect } from 'react-redux';
-
+import Row from './Row';
 // eslint-disable-next-line react/prefer-stateless-function
 class WeatherTable extends React.PureComponent {
-
-
-    state = {
-        item: 1,
-    };
-
-
     renderTable() {
         const { isWeatherDataRecieved } = this.props;
         const { weatherData } = this.props;
@@ -33,15 +27,9 @@ class WeatherTable extends React.PureComponent {
                 </thead>
 
                 <tbody>
-                    {a.map(i => {
-                        return <Row key={i} item={i} />
+                    {a.map((i) => {
+                        return <Row key={i} item={i} />;
                     })}
-
-                    {/* {weatherData.response.data.list.forEach(function (item) {
-                        return <
-                       
-                    })} */}
-
                 </tbody>
             </table>
         );

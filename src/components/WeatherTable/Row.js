@@ -43,11 +43,11 @@ class Row extends React.PureComponent {
 }
 
 
-const mapToStateProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         isWeatherDataRecieved: state.weather.weatherCompleted,
         weatherData: state.weather.weatherData,
     };
 };
 
-export default connect(mapToStateProps)(Row);
+export default connect(mapStateToProps)(Row);
