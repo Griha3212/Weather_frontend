@@ -43,6 +43,16 @@ class Header extends React.PureComponent {
 
                 <div className="right menu">
                     {/* <Link to='/register' className='item'>Регистрация</Link> */}
+                    <a href="/register">Register</a>
+                </div>
+
+                <div className="right menu">
+                    {/* <Link to='/register' className='item'>Регистрация</Link> */}
+                    <a href="/profile">Profile</a>
+                </div>
+
+                <div className="right menu">
+                    {/* <Link to='/register' className='item'>Регистрация</Link> */}
                     <a href="/history">History</a>
                 </div>
 

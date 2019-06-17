@@ -39,6 +39,7 @@ class Protected extends React.Component {
             <Switch>
                 <Route path='/weather' exact component={Weather} />
                 <Route path='/history' exact component={History} />
+                {/* <Route path='/history/:id' exact component={HistoryDetails} /> */}
                 {/* <Route path='/profile' exact component={Profile} /> */}
             </Switch>
         );

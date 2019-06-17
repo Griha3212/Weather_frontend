@@ -2,7 +2,7 @@
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 import * as actions from './weatherdata.actions';
-// import axiosInstance from '../core/axios';
+import axiosInstance from '../core/axios';
 
 // var dataresponse = 0;
 
@@ -21,6 +21,11 @@ export const weatherData = (inputLat, inputLon) => {
                 },
             })
                 .then((response) => {
+                   
+                    axiosInstance.post('/api/history', {
+                        city: response.data.city.name,
+                        weatherData: response.data.list,
+                    });
 
                     dispatch(actions.weatherDataSuccess({ response }));
                     console.log(response);

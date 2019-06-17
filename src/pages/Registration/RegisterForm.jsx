@@ -32,7 +32,7 @@ class RegisterForm extends React.Component {
     // Отправка при успешном заполнении формы
     onSubmit = async (formValues) => {
         const { onFormSubmited } = this.props;
-        console.log('this.props', this.props)
+        console.log('this.props', this.props);
         onFormSubmited(formValues);
     }
 

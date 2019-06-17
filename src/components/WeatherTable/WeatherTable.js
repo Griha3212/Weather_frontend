@@ -43,7 +43,7 @@ class WeatherTable extends React.PureComponent {
     }
 }
 
-const mapToStateProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         isWeatherDataRecieved: state.weather.weatherCompleted,
         weatherData: state.weather.weatherData,
@@ -51,4 +51,4 @@ const mapToStateProps = (state) => {
 };
 
 
-export default connect(mapToStateProps)(WeatherTable);
+export default connect(mapStateToProps)(WeatherTable);

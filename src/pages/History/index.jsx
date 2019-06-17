@@ -1,6 +1,10 @@
 import React from 'react';
-import axios from 'axios';
-import axiosInstance from '../../core/axios';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { getHistoryList } from '../../actions/history.thunk';
+import HistoryTable from '../../components/HistoryTable/HistoryTable';
+// import axios from 'axios';
+// import axiosInstance from '../../core/axios';
 // import AutocompleteInput from '../../components/Autocompleteinput/AutocompleteInput';
 // import WeatherTable from '../../components/WeatherTable/WeatherTable';
 
@@ -8,23 +12,35 @@ import axiosInstance from '../../core/axios';
 class History extends React.PureComponent {
 
     componentDidMount() {
-
-        axiosInstance.get('/api/history')
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
+        this.props.getHistoryList();
+        // this.props.getHistoryList - from thunk
     }
 
     render() {
+        console.log('this.props.h', this.props)
         return (
             <>
-
-                <div>History page</div>
+                {/* MAP histories/ return <HistoryItem></HistoryItem> */}
+                <div><HistoryTable/></div>
             </>
         );
     }
 }
 
 
-export default History;
+ // add redux
+
+
+const mapStateToProps = (state) => {
+    return {
+        isHistoryLoading: state.history.isHistoryLoading,
+        historyLoadingCompleted: state.history.historyLoadingCompleted,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ getHistoryList }, dispatch);
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(History);
