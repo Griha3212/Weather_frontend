@@ -3,12 +3,20 @@ import {
     HISTORY_DATA_REQUEST,
     HISTORY_DATA_SUCCESS,
     HISTORY_DATA_FAILURE,
+    HISTORY_DATA_ITEM_REQUEST,
+    HISTORY_DATA_ITEM_SUCCESS,
+    HISTORY_DATA_ITEM_FAILURE,
 } from '../actions/types';
 
 const INITIAL_STATE = {
     isHistoryLoading: false,
     historyLoadingCompleted: false,
     historyData: null,
+
+
+    isHistoryItemLoading: false,
+    historyItemLoadingCompleted: false,
+    historyItemData: null,
 };
 
 
@@ -27,7 +35,6 @@ export default (state = INITIAL_STATE, action) => {
                 isHistoryLoading: false,
                 historyData: action.payload,
                 historyLoadingCompleted: true,
-                
             };
         }
         case HISTORY_DATA_FAILURE: {
@@ -35,6 +42,29 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 isHistoryLoading: false,
                 historyLoadingCompleted: false,
+            };
+        }
+        //для одного элемента
+        case HISTORY_DATA_ITEM_REQUEST: {
+            return {
+                ...state,
+                isHistoryItemLoading: true,
+                historyItemLoadingCompleted: false,
+            };
+        }
+        case HISTORY_DATA_ITEM_SUCCESS: {
+            return {
+                ...state,
+                isHistoryItemLoading: false,
+                historyItemData: action.payload,
+                historyItemLoadingCompleted: true,
+            };
+        }
+        case HISTORY_DATA_ITEM_FAILURE: {
+            return {
+                ...state,
+                isHistoryItemLoading: false,
+                historyItemLoadingCompleted: false,
             };
         }
 

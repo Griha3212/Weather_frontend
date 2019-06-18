@@ -4,6 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import HistoryRow from './HistoryRow';
+import '../../style.css';
 // eslint-disable-next-line react/prefer-stateless-function
 
 class HistoryTable extends React.PureComponent {
@@ -17,7 +18,7 @@ class HistoryTable extends React.PureComponent {
         // console.log();
 
         return (
-            <table className="ui celled table">
+            <table className="ui celled table dataTable">
                 <thead>
                     <tr>
                         <th>Город</th>

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import RegisterForm from './RegisterForm';
 import { register } from '../../actions/register.thunk';
+import Header from '../../components/Header/Header';
 
 
 class Register extends React.PureComponent {
@@ -27,9 +28,12 @@ class Register extends React.PureComponent {
     render() {
         const { isRegistrationLoading } = this.props;
         return (
-            <RegisterForm 
-                isRegistrationLoading={isRegistrationLoading}
-                onFormSubmited={this.formSubmited} />
+            <>
+                <Header />
+                <RegisterForm
+                    isRegistrationLoading={isRegistrationLoading}
+                    onFormSubmited={this.formSubmited} />
+            </>
         );
     }
 }

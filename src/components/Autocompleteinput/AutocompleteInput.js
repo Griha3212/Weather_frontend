@@ -12,7 +12,7 @@ import { weatherData } from '../../actions/weatherdata.thunk';
 class AutocompleteInput extends React.PureComponent {
   render() {
     return (
-      <div className="ui input">
+      <div style={{ width: '100%' }} className="ui input">
         <Autocomplete
           style={{ width: '100%' }}
           onPlaceSelected={(city) => {

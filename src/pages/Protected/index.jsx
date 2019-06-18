@@ -4,6 +4,9 @@ import React from 'react';
 import { Switch, Route } from 'react-router';
 import Weather from '../Weather';
 import History from '../History';
+import HistoryItem from '../History/components/HistoryItem';
+import Profile from '../Profile/index';
+import HeaderProtected from '../../components/Header/HeaderProtected';
 
 import axiosInstance from '../../core/axios';
 
@@ -36,12 +39,15 @@ class Protected extends React.Component {
 
 
         return (
-            <Switch>
-                <Route path='/weather' exact component={Weather} />
-                <Route path='/history' exact component={History} />
-                {/* <Route path='/history/:id' exact component={HistoryDetails} /> */}
-                {/* <Route path='/profile' exact component={Profile} /> */}
-            </Switch>
+            <>
+                <HeaderProtected />
+                <Switch>
+                    <Route path='/weather' exact component={Weather} />
+                    <Route path='/history' exact component={History} />
+                    <Route path='/history/:_id' component={HistoryItem} />
+                    <Route path='/profile' exact component={Profile} />
+                </Switch>
+            </>
         );
     }
 }

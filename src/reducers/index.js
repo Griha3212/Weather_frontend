@@ -4,6 +4,7 @@ import registerReducer from './registerReducer';
 import loginReducer from './loginReducer';
 import weatherDataReducer from './weatherDataReducer';
 import historyReducer from './historyReducer';
+import profileReducer from './profileReducer';
 
 
 export default combineReducers({
@@ -12,4 +13,5 @@ export default combineReducers({
     weather: weatherDataReducer,
     history: historyReducer,
     form: formReducer,
+    profile: profileReducer,
 });

@@ -15,7 +15,6 @@ const App = () => (
     <div className="ui container">
         <div>
             <Router history={history}>
-                <Header />
                 <Switch>
                     <Route path="/register" exact component={Register} />
                     <Route path="/login" exact component={Login} />

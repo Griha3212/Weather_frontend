@@ -1,11 +1,10 @@
+/* eslint-disable max-len */
+/* eslint-disable arrow-body-style */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable no-shadow */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { connect } from 'react-redux';
-import { weatherData } from '../../actions/weatherdata.thunk';
-import weather from '../../reducers';
-import { stat } from 'fs';
-
 
 class Row extends React.PureComponent {
     renderRow() {

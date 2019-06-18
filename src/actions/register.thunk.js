@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable import/prefer-default-export */
 import * as actions from './register.actions';
 import axiosInstance from '../core/axios';
 
@@ -11,12 +13,11 @@ export const register = (data) => {
             // import axiosInstance from core/axios
             // const response = await axiosInstance.post('/api/register');
             console.log('Данные перед отправкой', data);
-        const response = await axiosInstance.post('/auth/register', data);
-        console.log('Я отправил данные');
-            dispatch(actions.registerSuccess({}));
+            const response = await axiosInstance.post('/auth/register', data);
+            console.log('Я отправил данные');
+            dispatch(actions.registerSuccess({ response }));
         } catch (err) {
-            dispatch(actions.registerFailure({}));
+            dispatch(actions.registerFailure({ err }));
         }
     };
 };
-
